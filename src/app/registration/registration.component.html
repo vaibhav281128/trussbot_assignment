@@ -1,0 +1,99 @@
+
+<div fxLayout="row">
+
+  <div fxHide.xs="true" fxFlex="35"></div>
+
+  <div fxLayout="column" fxFlex.xs="100" fxFlex="30" class="form-div">
+    <form action="registrationForm">
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+          <label fxFlex.xs="100" fxFlex="100">Registration Form </label>
+      </div>
+      
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <label fxFlex="40" for="name">Name</label>
+          <input fxFlex="60" type="text" name="name" placeholder="Name" required minlength="4"
+          [(ngModel)]="person.name" #name="ngModel" >
+        </div>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+              Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+              Name must be at least 4 characters long.
+            </div>
+        </div>
+      </div>
+
+      <div fxLayout="column">
+        <div flexLayout="row" fxLayoutAlign="center center">
+          <label fxFlex="40" for="phone">Phone</label>
+          <input fxFlex="60" type="number" name="phone" placeholder="Phone" required minlength="10"
+          [(ngModel)]="person.phone" #phone="ngModel">
+        </div>
+
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+            <div *ngIf="phone.errors.required">
+              Phone number is required.
+            </div>
+            <div *ngIf="phone.errors.minlength">
+              Phone number must be at least 10 digits long.
+            </div>
+        </div>
+      </div>
+
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <label fxFlex="40" for="email">Email</label>
+          <input fxFlex="60" type="email" name="email" placeholder="Email" required email="true"
+          [(ngModel)]="person.email" #email="ngModel" >  
+        </div>
+
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required">
+                Email is required.
+            </div>
+            <div *ngIf="email.errors.email">
+                Email is invalid.
+            </div>
+        </div>
+      </div>
+
+
+      <div fxLayout="column">
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <label fxFlex="40" for="jobTitle">Job Title</label>
+            <input fxFlex="60" type="text" name="jobTitle" placeholder="Job Title" required
+            [(ngModel)]="person.jobTitle" #jobTitle="ngModel">
+        </div>
+
+        <div *ngIf="jobTitle.invalid && (jobTitle.dirty || jobTitle.touched)" class="alert alert-danger">
+            <div *ngIf="jobTitle.errors.required">
+                Jobtitle is required.
+            </div>
+        </div>
+      </div>
+      
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <label fxFlex="40" for="resume">Upload Resume</label>
+            <input fxFlex="58" type="file" name="resume" requireFile
+            [(ngModel)] = "person.resume" #resume="ngModel">
+        </div>
+        <div *ngIf="resume.invalid && (resume.dirty || resume.touched)" class="alert alert-danger">
+            <div *ngIf="resume.errors.requireFile">
+                Resume is not selected.
+            </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+          <input fxFlex="50" type="submit" value="Submit">
+      </div>
+      
+    </form>
+  </div>
+</div>

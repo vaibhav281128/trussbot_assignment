@@ -1,1 +1,24 @@
-<md-toolbar color="primary"> <span>TrussBot</span> </md-toolbar>
+
+<div fxLayout="row" class="row-header">
+
+  <div fxFlex="25" fxHide.xs="true" ></div>
+
+  <div fxFlex.xs="100" fxFlex="50" fxLayoutAlign="center center">
+    <h1>TrussBot</h1>
+  </div>  
+
+  <div fxFlex="25" fxHide.xs="true"></div>
+</div>
+
+
+<div fxLayout="row" fxLayout.xs="column" class="navTabs">
+  
+  <div fxFlex="20" fxFlex.xs="100" fxLayoutAlign="center center" class="navTab">
+    <a routerLink="/registration">Register</a>
+  </div>
+  <div fxFlex="20" fxFlex.xs="100" fxLayoutAlign="center center" class="navTab">
+    <a routerLink="/registration">About US</a>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+label{
+    text-align: center;
+    padding: 2px;
+    margin: 2px;
+    background-color: turquoise;
+    border-radius: 5px;
+}
+
+input{
+    text-align: left;
+    padding: 2px;
+    margin: 2px;
+    background-color: paleturquoise;
+    border-radius: 5px;
+}
+
+input[type=submit]{
+    text-align: center;
+    background-color: turquoise;
+    font-family: Roboto, sans-serif;
+    border-style: none;
+}
+
+.form-div{
+    background-color: plum;
+    border-radius: 5px;
+    padding: 10px;
+}

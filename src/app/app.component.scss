@@ -1,0 +1,33 @@
+
+body { 
+    padding: 0; 
+    margin: 0; 
+    font-family: Roboto, sans-serif;   
+  }
+  
+  .row-header{
+      color : white;
+      background-color: palevioletred;
+      margin: 0 auto;
+  }
+  .navTabs{
+      background-color: papayawhip;
+      padding: 5px;
+  }
+  
+  .navTab{
+      color: white;
+      background-color: purple;
+      height: 25px;
+      margin: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+      vertical-align: middle;
+  }
+  
+  .navTab > a{
+      color: white;
+      text-decoration: none;
+  }
+  
+  
