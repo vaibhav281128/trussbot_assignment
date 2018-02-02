@@ -19,16 +19,5 @@ export class RegistrationComponent  {
     email:'',
     jobTitle:'',
     resume:''
-  };
-
-  onSubmit(data){
-
-    var url = '/register';
-    this.http.post(url, data).subscribe(response => {
-      
-      console.log(response.toString);
-      
-    })
-    
-  }    
+  };  
 }
