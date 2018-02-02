@@ -4,7 +4,7 @@ const path = require('path');
 const formidable = require('formidable');
 
 const hostname = 'localhost';
-const port = 3000;
+const port = 8080;
 
 const server = http.createServer((req, res) => {
   console.log('Request for ' + req.url + ' by method ' + req.method);
@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     else 
       fileUrl = req.url;
 
-    var filePath = path.resolve('.'+fileUrl);
+    var filePath = path.resolve('./dist'+fileUrl);
     
     const fileExt = path.extname(filePath);
     if (fileExt == '.html' || fileExt == '.css' || fileExt == '.js') {
@@ -72,8 +72,7 @@ const server = http.createServer((req, res) => {
 
                 var queryPhone = { 'phone' : fields.phone};
                 var queryEmail = { 'email' : fields.email};
-                var docInsert  = { 'name'  : fields.name, 'phone': fields.phone, 
-                                   'email' : fields.email, 'jobTitle': fields.jobTitle};
+                
                   
                 mongo_ops.findDocument(db,queryPhone,collection, (foundPhone) => {
                 
@@ -90,6 +89,12 @@ const server = http.createServer((req, res) => {
                         res.end('<p>Failed, Email Id already exists.</p>');
                       }
                       else{
+                        var fileBson = fs.readFileSync(files.resume.path);
+                        fs.unlinkSync(files.resume.path);
+                        var docInsert  = { 'name'  : fields.name, 'phone': fields.phone, 
+                                   'email' : fields.email, 'jobTitle': fields.jobTitle,
+                                  'resume': fileBson};
+
                         mongo_ops.insertDocument(db, docInsert, collection, (inserted) => {
                           res.statusCode = 200;
                           res.setHeader('Content-Type', 'text/html');

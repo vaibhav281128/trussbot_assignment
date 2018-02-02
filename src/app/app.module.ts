@@ -11,7 +11,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule } from '@angular/router/src/router_module';
 import { ROUTES } from '@angular/router/src/router_config_loader';
-
+import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -23,6 +23,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule,

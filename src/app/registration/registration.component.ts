@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-registration',
@@ -8,11 +9,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationComponent  {
 
+  constructor(private http: Http) {}
+
+  
   person = {
+    message:'',
     name:'',
     phone:'',
     email:'',
     jobTitle:'',
     resume:''
   };
+
+  onSubmit(data){
+
+    var url = '/register';
+    this.http.post(url, data).subscribe(response => {
+      
+      console.log(response.toString);
+      
+    })
+    
+  }    
 }

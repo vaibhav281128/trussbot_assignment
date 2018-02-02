@@ -30,11 +30,11 @@ exports.validateForm = (fields, files, callback) => {
         results.message.push('Invalid Job Title.');
     }
 
-    /*if(!files.resume.name)
+    if(!files.resume.name)
     {
         results.success = false;
         message.push('Resume not attached.');
-    }*/
+    }
         
     callback(results);
 }
